@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LoteCreateDlg" widgetVar="LoteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateLoteTitle}">
+            <h:form id="LoteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{loteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{loteController.selected.id}" title="#{bundle.CreateLoteTitle_id}" required="true" requiredMessage="#{bundle.CreateLoteRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_nroLote}" for="nroLote" />
+                        <p:inputText id="nroLote" value="#{loteController.selected.nroLote}" title="#{bundle.CreateLoteTitle_nroLote}" required="true" requiredMessage="#{bundle.CreateLoteRequiredMessage_nroLote}"/>
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_dispTotal}" for="dispTotal" />
+                        <p:inputText id="dispTotal" value="#{loteController.selected.dispTotal}" title="#{bundle.CreateLoteTitle_dispTotal}" required="true" requiredMessage="#{bundle.CreateLoteRequiredMessage_dispTotal}"/>
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_referencia}" for="referencia" />
+                        <p:inputText id="referencia" value="#{loteController.selected.referencia}" title="#{bundle.CreateLoteTitle_referencia}" />
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_precioUnitario}" for="precioUnitario" />
+                        <p:inputText id="precioUnitario" value="#{loteController.selected.precioUnitario}" title="#{bundle.CreateLoteTitle_precioUnitario}" required="true" requiredMessage="#{bundle.CreateLoteRequiredMessage_precioUnitario}"/>
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_seriales}" for="seriales" />
+                        <p:inputTextarea rows="4" cols="30" id="seriales" value="#{loteController.selected.seriales}" title="#{bundle.CreateLoteTitle_seriales}" />
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_garantia}" for="garantia" />
+                        <p:inputText id="garantia" value="#{loteController.selected.garantia}" title="#{bundle.CreateLoteTitle_garantia}" />
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_tipoGarantia}" for="tipoGarantia" />
+                        <p:inputText id="tipoGarantia" value="#{loteController.selected.tipoGarantia}" title="#{bundle.CreateLoteTitle_tipoGarantia}" />
+                        <p:outputLabel value="#{bundle.CreateLoteLabel_productoId}" for="productoId" />
+                        <p:selectOneMenu id="productoId" value="#{loteController.selected.productoId}" required="true" requiredMessage="#{bundle.EditLoteRequiredMessage_productoId}">
+                            <f:selectItems value="#{productoController.itemsAvailableSelectOne}"
+                                           var="productoIdItem"
+                                           itemValue="#{productoIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{loteController.create}" value="#{bundle.Save}" update="display,:LoteListForm:datalist,:growl" oncomplete="handleSubmit(args,'LoteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LoteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

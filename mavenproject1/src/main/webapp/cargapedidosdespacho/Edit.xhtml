@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CargapedidosdespachoEditDlg" widgetVar="CargapedidosdespachoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCargapedidosdespachoTitle}">
+            <h:form id="CargapedidosdespachoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cargapedidosdespachoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{cargapedidosdespachoController.selected.id}" title="#{bundle.EditCargapedidosdespachoTitle_id}" required="true" requiredMessage="#{bundle.EditCargapedidosdespachoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_codigoMovistar}" for="codigoMovistar" />
+                        <p:inputText id="codigoMovistar" value="#{cargapedidosdespachoController.selected.codigoMovistar}" title="#{bundle.EditCargapedidosdespachoTitle_codigoMovistar}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_corListado}" for="corListado" />
+                        <p:inputText id="corListado" value="#{cargapedidosdespachoController.selected.corListado}" title="#{bundle.EditCargapedidosdespachoTitle_corListado}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{cargapedidosdespachoController.selected.estatus}" title="#{bundle.EditCargapedidosdespachoTitle_estatus}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_factura}" for="factura" />
+                        <p:inputText id="factura" value="#{cargapedidosdespachoController.selected.factura}" title="#{bundle.EditCargapedidosdespachoTitle_factura}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{cargapedidosdespachoController.selected.fecha}" title="#{bundle.EditCargapedidosdespachoTitle_fecha}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_guiaDespacho}" for="guiaDespacho" />
+                        <p:inputTextarea rows="4" cols="30" id="guiaDespacho" value="#{cargapedidosdespachoController.selected.guiaDespacho}" title="#{bundle.EditCargapedidosdespachoTitle_guiaDespacho}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_loteDespacho}" for="loteDespacho" />
+                        <p:inputText id="loteDespacho" value="#{cargapedidosdespachoController.selected.loteDespacho}" title="#{bundle.EditCargapedidosdespachoTitle_loteDespacho}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_nombreEstatus}" for="nombreEstatus" />
+                        <p:inputText id="nombreEstatus" value="#{cargapedidosdespachoController.selected.nombreEstatus}" title="#{bundle.EditCargapedidosdespachoTitle_nombreEstatus}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_peso}" for="peso" />
+                        <p:inputText id="peso" value="#{cargapedidosdespachoController.selected.peso}" title="#{bundle.EditCargapedidosdespachoTitle_peso}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_piezas}" for="piezas" />
+                        <p:inputText id="piezas" value="#{cargapedidosdespachoController.selected.piezas}" title="#{bundle.EditCargapedidosdespachoTitle_piezas}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_razonSocial}" for="razonSocial" />
+                        <p:inputText id="razonSocial" value="#{cargapedidosdespachoController.selected.razonSocial}" title="#{bundle.EditCargapedidosdespachoTitle_razonSocial}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_seriales}" for="seriales" />
+                        <p:inputTextarea rows="4" cols="30" id="seriales" value="#{cargapedidosdespachoController.selected.seriales}" title="#{bundle.EditCargapedidosdespachoTitle_seriales}" />
+                        <p:outputLabel value="#{bundle.EditCargapedidosdespachoLabel_transportista}" for="transportista" />
+                        <p:inputText id="transportista" value="#{cargapedidosdespachoController.selected.transportista}" title="#{bundle.EditCargapedidosdespachoTitle_transportista}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cargapedidosdespachoController.update}" value="#{bundle.Save}" update="display,:CargapedidosdespachoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CargapedidosdespachoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CargapedidosdespachoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

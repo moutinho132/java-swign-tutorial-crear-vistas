@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncidenciaViewDlg" widgetVar="IncidenciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewIncidenciaTitle}">
+            <h:form id="IncidenciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incidenciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_id}"/>
+                        <h:outputText value="#{incidenciaController.selected.id}" title="#{bundle.ViewIncidenciaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_especifiqueIncidente}"/>
+                        <h:outputText value="#{incidenciaController.selected.especifiqueIncidente}" title="#{bundle.ViewIncidenciaTitle_especifiqueIncidente}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_estatus}"/>
+                        <h:outputText value="#{incidenciaController.selected.estatus}" title="#{bundle.ViewIncidenciaTitle_estatus}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_fechaDespachado}"/>
+                        <h:outputText value="#{incidenciaController.selected.fechaDespachado}" title="#{bundle.ViewIncidenciaTitle_fechaDespachado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_fechaEntregado}"/>
+                        <h:outputText value="#{incidenciaController.selected.fechaEntregado}" title="#{bundle.ViewIncidenciaTitle_fechaEntregado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_fechaIncidencia}"/>
+                        <h:outputText value="#{incidenciaController.selected.fechaIncidencia}" title="#{bundle.ViewIncidenciaTitle_fechaIncidencia}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_guiaDespacho}"/>
+                        <h:outputText value="#{incidenciaController.selected.guiaDespacho}" title="#{bundle.ViewIncidenciaTitle_guiaDespacho}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_loteDespacho}"/>
+                        <h:outputText value="#{incidenciaController.selected.loteDespacho}" title="#{bundle.ViewIncidenciaTitle_loteDespacho}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_nroIncidente}"/>
+                        <h:outputText value="#{incidenciaController.selected.nroIncidente}" title="#{bundle.ViewIncidenciaTitle_nroIncidente}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_observaciones}"/>
+                        <h:outputText value="#{incidenciaController.selected.observaciones}" title="#{bundle.ViewIncidenciaTitle_observaciones}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_peso}"/>
+                        <h:outputText value="#{incidenciaController.selected.peso}" title="#{bundle.ViewIncidenciaTitle_peso}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_piezas}"/>
+                        <h:outputText value="#{incidenciaController.selected.piezas}" title="#{bundle.ViewIncidenciaTitle_piezas}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_tipoIncidencia}"/>
+                        <h:outputText value="#{incidenciaController.selected.tipoIncidencia}" title="#{bundle.ViewIncidenciaTitle_tipoIncidencia}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_transportista}"/>
+                        <h:outputText value="#{incidenciaController.selected.transportista}" title="#{bundle.ViewIncidenciaTitle_transportista}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_fechaCierre}"/>
+                        <h:outputText value="#{incidenciaController.selected.fechaCierre}" title="#{bundle.ViewIncidenciaTitle_fechaCierre}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_notasCliente}"/>
+                        <h:outputText value="#{incidenciaController.selected.notasCliente}" title="#{bundle.ViewIncidenciaTitle_notasCliente}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_notasWitec}"/>
+                        <h:outputText value="#{incidenciaController.selected.notasWitec}" title="#{bundle.ViewIncidenciaTitle_notasWitec}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_guiaDespachoNew}"/>
+                        <h:outputText value="#{incidenciaController.selected.guiaDespachoNew}" title="#{bundle.ViewIncidenciaTitle_guiaDespachoNew}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_loteDespachoNew}"/>
+                        <h:outputText value="#{incidenciaController.selected.loteDespachoNew}" title="#{bundle.ViewIncidenciaTitle_loteDespachoNew}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_nombreEstatus}"/>
+                        <h:outputText value="#{incidenciaController.selected.nombreEstatus}" title="#{bundle.ViewIncidenciaTitle_nombreEstatus}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_notificacionAdmin}"/>
+                        <h:outputText value="#{incidenciaController.selected.notificacionAdmin}" title="#{bundle.ViewIncidenciaTitle_notificacionAdmin}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_notificacionCliente}"/>
+                        <h:outputText value="#{incidenciaController.selected.notificacionCliente}" title="#{bundle.ViewIncidenciaTitle_notificacionCliente}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_pesoNew}"/>
+                        <h:outputText value="#{incidenciaController.selected.pesoNew}" title="#{bundle.ViewIncidenciaTitle_pesoNew}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_piezasNew}"/>
+                        <h:outputText value="#{incidenciaController.selected.piezasNew}" title="#{bundle.ViewIncidenciaTitle_piezasNew}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_recibido}"/>
+                        <h:outputText value="#{incidenciaController.selected.recibido}" title="#{bundle.ViewIncidenciaTitle_recibido}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_serialNuevo}"/>
+                        <h:outputText value="#{incidenciaController.selected.serialNuevo}" title="#{bundle.ViewIncidenciaTitle_serialNuevo}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_serialReportado}"/>
+                        <h:outputText value="#{incidenciaController.selected.serialReportado}" title="#{bundle.ViewIncidenciaTitle_serialReportado}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_transportistaNew}"/>
+                        <h:outputText value="#{incidenciaController.selected.transportistaNew}" title="#{bundle.ViewIncidenciaTitle_transportistaNew}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_diasResolucion}"/>
+                        <h:outputText value="#{incidenciaController.selected.diasResolucion}" title="#{bundle.ViewIncidenciaTitle_diasResolucion}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_loteIdNuevo}"/>
+                        <h:outputText value="#{incidenciaController.selected.loteIdNuevo}" title="#{bundle.ViewIncidenciaTitle_loteIdNuevo}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_idLote}"/>
+                        <h:outputText value="#{incidenciaController.selected.idLote}" title="#{bundle.ViewIncidenciaTitle_idLote}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_idPedido}"/>
+                        <h:outputText value="#{incidenciaController.selected.idPedido}" title="#{bundle.ViewIncidenciaTitle_idPedido}"/>
+                        <h:outputText value="#{bundle.ViewIncidenciaLabel_idCliente}"/>
+                        <h:outputText value="#{incidenciaController.selected.idCliente}" title="#{bundle.ViewIncidenciaTitle_idCliente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="IncidenciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

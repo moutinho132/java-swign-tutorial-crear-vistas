@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DiaferiadoViewDlg" widgetVar="DiaferiadoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDiaferiadoTitle}">
+            <h:form id="DiaferiadoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{diaferiadoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDiaferiadoLabel_id}"/>
+                        <h:outputText value="#{diaferiadoController.selected.id}" title="#{bundle.ViewDiaferiadoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewDiaferiadoLabel_anio}"/>
+                        <h:outputText value="#{diaferiadoController.selected.anio}" title="#{bundle.ViewDiaferiadoTitle_anio}"/>
+                        <h:outputText value="#{bundle.ViewDiaferiadoLabel_dia}"/>
+                        <h:outputText value="#{diaferiadoController.selected.dia}" title="#{bundle.ViewDiaferiadoTitle_dia}"/>
+                        <h:outputText value="#{bundle.ViewDiaferiadoLabel_mes}"/>
+                        <h:outputText value="#{diaferiadoController.selected.mes}" title="#{bundle.ViewDiaferiadoTitle_mes}"/>
+                        <h:outputText value="#{bundle.ViewDiaferiadoLabel_nombreFeriado}"/>
+                        <h:outputText value="#{diaferiadoController.selected.nombreFeriado}" title="#{bundle.ViewDiaferiadoTitle_nombreFeriado}"/>
+                        <h:outputText value="#{bundle.ViewDiaferiadoLabel_tipo}"/>
+                        <h:outputText value="#{diaferiadoController.selected.tipo}" title="#{bundle.ViewDiaferiadoTitle_tipo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DiaferiadoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

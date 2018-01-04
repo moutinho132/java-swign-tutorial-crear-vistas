@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LoteViewDlg" widgetVar="LoteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLoteTitle}">
+            <h:form id="LoteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{loteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLoteLabel_id}"/>
+                        <h:outputText value="#{loteController.selected.id}" title="#{bundle.ViewLoteTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_nroLote}"/>
+                        <h:outputText value="#{loteController.selected.nroLote}" title="#{bundle.ViewLoteTitle_nroLote}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_dispTotal}"/>
+                        <h:outputText value="#{loteController.selected.dispTotal}" title="#{bundle.ViewLoteTitle_dispTotal}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_referencia}"/>
+                        <h:outputText value="#{loteController.selected.referencia}" title="#{bundle.ViewLoteTitle_referencia}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_precioUnitario}"/>
+                        <h:outputText value="#{loteController.selected.precioUnitario}" title="#{bundle.ViewLoteTitle_precioUnitario}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_seriales}"/>
+                        <h:outputText value="#{loteController.selected.seriales}" title="#{bundle.ViewLoteTitle_seriales}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_garantia}"/>
+                        <h:outputText value="#{loteController.selected.garantia}" title="#{bundle.ViewLoteTitle_garantia}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_tipoGarantia}"/>
+                        <h:outputText value="#{loteController.selected.tipoGarantia}" title="#{bundle.ViewLoteTitle_tipoGarantia}"/>
+                        <h:outputText value="#{bundle.ViewLoteLabel_productoId}"/>
+                        <h:outputText value="#{loteController.selected.productoId}" title="#{bundle.ViewLoteTitle_productoId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LoteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

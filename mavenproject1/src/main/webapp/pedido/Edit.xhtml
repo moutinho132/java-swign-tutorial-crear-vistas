@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PedidoEditDlg" widgetVar="PedidoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPedidoTitle}">
+            <h:form id="PedidoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pedidoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{pedidoController.selected.id}" title="#{bundle.EditPedidoTitle_id}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_corPedido}" for="corPedido" />
+                        <p:inputText id="corPedido" value="#{pedidoController.selected.corPedido}" title="#{bundle.EditPedidoTitle_corPedido}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_corPedido}"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_nroPedido}" for="nroPedido" />
+                        <p:inputText id="nroPedido" value="#{pedidoController.selected.nroPedido}" title="#{bundle.EditPedidoTitle_nroPedido}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{pedidoController.selected.cantidad}" title="#{bundle.EditPedidoTitle_cantidad}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_cantidad}"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_fechaDespacho}" for="fechaDespacho" />
+                        <p:calendar id="fechaDespacho" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fechaDespacho}" title="#{bundle.EditPedidoTitle_fechaDespacho}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_fechaDespacho}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_fechaPedido}" for="fechaPedido" />
+                        <p:calendar id="fechaPedido" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fechaPedido}" title="#{bundle.EditPedidoTitle_fechaPedido}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_fechaPedido}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_notas}" for="notas" />
+                        <p:inputText id="notas" value="#{pedidoController.selected.notas}" title="#{bundle.EditPedidoTitle_notas}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_nroComprobante}" for="nroComprobante" />
+                        <p:inputText id="nroComprobante" value="#{pedidoController.selected.nroComprobante}" title="#{bundle.EditPedidoTitle_nroComprobante}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_comprobantePago}" for="comprobantePago" />
+                        <p:inputTextarea rows="4" cols="30" id="comprobantePago" value="#{pedidoController.selected.comprobantePago}" title="#{bundle.EditPedidoTitle_comprobantePago}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_bancoOrigen}" for="bancoOrigen" />
+                        <p:inputText id="bancoOrigen" value="#{pedidoController.selected.bancoOrigen}" title="#{bundle.EditPedidoTitle_bancoOrigen}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_rifCiTitular}" for="rifCiTitular" />
+                        <p:inputText id="rifCiTitular" value="#{pedidoController.selected.rifCiTitular}" title="#{bundle.EditPedidoTitle_rifCiTitular}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_montoDeposito}" for="montoDeposito" />
+                        <p:inputText id="montoDeposito" value="#{pedidoController.selected.montoDeposito}" title="#{bundle.EditPedidoTitle_montoDeposito}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_retencion}" for="retencion" />
+                        <p:inputText id="retencion" value="#{pedidoController.selected.retencion}" title="#{bundle.EditPedidoTitle_retencion}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_notasAdmin}" for="notasAdmin" />
+                        <p:inputText id="notasAdmin" value="#{pedidoController.selected.notasAdmin}" title="#{bundle.EditPedidoTitle_notasAdmin}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_incidencia}" for="incidencia" />
+                        <p:inputText id="incidencia" value="#{pedidoController.selected.incidencia}" title="#{bundle.EditPedidoTitle_incidencia}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_nroFactura}" for="nroFactura" />
+                        <p:inputText id="nroFactura" value="#{pedidoController.selected.nroFactura}" title="#{bundle.EditPedidoTitle_nroFactura}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_seriales}" for="seriales" />
+                        <p:inputTextarea rows="4" cols="30" id="seriales" value="#{pedidoController.selected.seriales}" title="#{bundle.EditPedidoTitle_seriales}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_guiaDespacho}" for="guiaDespacho" />
+                        <p:inputTextarea rows="4" cols="30" id="guiaDespacho" value="#{pedidoController.selected.guiaDespacho}" title="#{bundle.EditPedidoTitle_guiaDespacho}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_transportista}" for="transportista" />
+                        <p:inputText id="transportista" value="#{pedidoController.selected.transportista}" title="#{bundle.EditPedidoTitle_transportista}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_piezas}" for="piezas" />
+                        <p:inputText id="piezas" value="#{pedidoController.selected.piezas}" title="#{bundle.EditPedidoTitle_piezas}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_peso}" for="peso" />
+                        <p:inputText id="peso" value="#{pedidoController.selected.peso}" title="#{bundle.EditPedidoTitle_peso}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_nroPropuesta}" for="nroPropuesta" />
+                        <p:inputText id="nroPropuesta" value="#{pedidoController.selected.nroPropuesta}" title="#{bundle.EditPedidoTitle_nroPropuesta}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_idAnt}" for="idAnt" />
+                        <p:inputText id="idAnt" value="#{pedidoController.selected.idAnt}" title="#{bundle.EditPedidoTitle_idAnt}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_recibido}" for="recibido" />
+                        <p:inputText id="recibido" value="#{pedidoController.selected.recibido}" title="#{bundle.EditPedidoTitle_recibido}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_fechaDespachado}" for="fechaDespachado" />
+                        <p:calendar id="fechaDespachado" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fechaDespachado}" title="#{bundle.EditPedidoTitle_fechaDespachado}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_fechaEntregado}" for="fechaEntregado" />
+                        <p:calendar id="fechaEntregado" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fechaEntregado}" title="#{bundle.EditPedidoTitle_fechaEntregado}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_fechaConfirmado}" for="fechaConfirmado" />
+                        <p:calendar id="fechaConfirmado" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fechaConfirmado}" title="#{bundle.EditPedidoTitle_fechaConfirmado}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_loteDespacho}" for="loteDespacho" />
+                        <p:inputText id="loteDespacho" value="#{pedidoController.selected.loteDespacho}" title="#{bundle.EditPedidoTitle_loteDespacho}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_ivaPorc}" for="ivaPorc" />
+                        <p:inputText id="ivaPorc" value="#{pedidoController.selected.ivaPorc}" title="#{bundle.EditPedidoTitle_ivaPorc}" />
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_fechaFactura}" for="fechaFactura" />
+                        <p:calendar id="fechaFactura" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fechaFactura}" title="#{bundle.EditPedidoTitle_fechaFactura}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{pedidoController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_idCliente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_estatus}" for="estatus" />
+                        <p:selectOneMenu id="estatus" value="#{pedidoController.selected.estatus}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_estatus}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estatusController.itemsAvailableSelectOne}"
+                                           var="estatusItem"
+                                           itemValue="#{estatusItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPedidoLabel_idPropuesta}" for="idPropuesta" />
+                        <p:selectOneMenu id="idPropuesta" value="#{pedidoController.selected.idPropuesta}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_idPropuesta}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{propuestaController.itemsAvailableSelectOne}"
+                                           var="idPropuestaItem"
+                                           itemValue="#{idPropuestaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pedidoController.update}" value="#{bundle.Save}" update="display,:PedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PedidoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PedidoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

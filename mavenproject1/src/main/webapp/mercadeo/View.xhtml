@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MercadeoViewDlg" widgetVar="MercadeoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMercadeoTitle}">
+            <h:form id="MercadeoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mercadeoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_id}"/>
+                        <h:outputText value="#{mercadeoController.selected.id}" title="#{bundle.ViewMercadeoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_cantidad}"/>
+                        <h:outputText value="#{mercadeoController.selected.cantidad}" title="#{bundle.ViewMercadeoTitle_cantidad}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_guiaDespacho}"/>
+                        <h:outputText value="#{mercadeoController.selected.guiaDespacho}" title="#{bundle.ViewMercadeoTitle_guiaDespacho}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_loteDespacho}"/>
+                        <h:outputText value="#{mercadeoController.selected.loteDespacho}" title="#{bundle.ViewMercadeoTitle_loteDespacho}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_peso}"/>
+                        <h:outputText value="#{mercadeoController.selected.peso}" title="#{bundle.ViewMercadeoTitle_peso}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_piezas}"/>
+                        <h:outputText value="#{mercadeoController.selected.piezas}" title="#{bundle.ViewMercadeoTitle_piezas}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_transportista}"/>
+                        <h:outputText value="#{mercadeoController.selected.transportista}" title="#{bundle.ViewMercadeoTitle_transportista}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_estatus}"/>
+                        <h:outputText value="#{mercadeoController.selected.estatus}" title="#{bundle.ViewMercadeoTitle_estatus}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_fechaDespachado}"/>
+                        <h:outputText value="#{mercadeoController.selected.fechaDespachado}" title="#{bundle.ViewMercadeoTitle_fechaDespachado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_fechaRegistro}"/>
+                        <h:outputText value="#{mercadeoController.selected.fechaRegistro}" title="#{bundle.ViewMercadeoTitle_fechaRegistro}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_nombreEstatus}"/>
+                        <h:outputText value="#{mercadeoController.selected.nombreEstatus}" title="#{bundle.ViewMercadeoTitle_nombreEstatus}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_notasEspeciales}"/>
+                        <h:outputText value="#{mercadeoController.selected.notasEspeciales}" title="#{bundle.ViewMercadeoTitle_notasEspeciales}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_nroMercadeo}"/>
+                        <h:outputText value="#{mercadeoController.selected.nroMercadeo}" title="#{bundle.ViewMercadeoTitle_nroMercadeo}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_seriales}"/>
+                        <h:outputText value="#{mercadeoController.selected.seriales}" title="#{bundle.ViewMercadeoTitle_seriales}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_cedulaCliente}"/>
+                        <h:outputText value="#{mercadeoController.selected.cedulaCliente}" title="#{bundle.ViewMercadeoTitle_cedulaCliente}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_correoCliente}"/>
+                        <h:outputText value="#{mercadeoController.selected.correoCliente}" title="#{bundle.ViewMercadeoTitle_correoCliente}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_nombrePrin}"/>
+                        <h:outputText value="#{mercadeoController.selected.nombrePrin}" title="#{bundle.ViewMercadeoTitle_nombrePrin}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_telefonoCliente}"/>
+                        <h:outputText value="#{mercadeoController.selected.telefonoCliente}" title="#{bundle.ViewMercadeoTitle_telefonoCliente}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_tipoPersona}"/>
+                        <h:outputText value="#{mercadeoController.selected.tipoPersona}" title="#{bundle.ViewMercadeoTitle_tipoPersona}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_idProducto}"/>
+                        <h:outputText value="#{mercadeoController.selected.idProducto}" title="#{bundle.ViewMercadeoTitle_idProducto}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_idLote}"/>
+                        <h:outputText value="#{mercadeoController.selected.idLote}" title="#{bundle.ViewMercadeoTitle_idLote}"/>
+                        <h:outputText value="#{bundle.ViewMercadeoLabel_idCliente}"/>
+                        <h:outputText value="#{mercadeoController.selected.idCliente}" title="#{bundle.ViewMercadeoTitle_idCliente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MercadeoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

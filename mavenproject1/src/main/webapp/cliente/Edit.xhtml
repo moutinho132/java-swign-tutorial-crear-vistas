@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteEditDlg" widgetVar="ClienteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditClienteTitle}">
+            <h:form id="ClienteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditClienteLabel_razonsocial}" for="razonsocial" />
+                        <p:inputText id="razonsocial" value="#{clienteController.selected.razonsocial}" title="#{bundle.EditClienteTitle_razonsocial}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_razonsocial}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_rif}" for="rif" />
+                        <p:inputText id="rif" value="#{clienteController.selected.rif}" title="#{bundle.EditClienteTitle_rif}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_codigodeudor}" for="codigodeudor" />
+                        <p:inputText id="codigodeudor" value="#{clienteController.selected.codigodeudor}" title="#{bundle.EditClienteTitle_codigodeudor}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_codigocomercial}" for="codigocomercial" />
+                        <p:inputText id="codigocomercial" value="#{clienteController.selected.codigocomercial}" title="#{bundle.EditClienteTitle_codigocomercial}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{clienteController.selected.id}" title="#{bundle.EditClienteTitle_id}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_centrocomercial}" for="centrocomercial" />
+                        <p:inputText id="centrocomercial" value="#{clienteController.selected.centrocomercial}" title="#{bundle.EditClienteTitle_centrocomercial}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_edificio}" for="edificio" />
+                        <p:inputText id="edificio" value="#{clienteController.selected.edificio}" title="#{bundle.EditClienteTitle_edificio}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_piso}" for="piso" />
+                        <p:inputText id="piso" value="#{clienteController.selected.piso}" title="#{bundle.EditClienteTitle_piso}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_local}" for="local" />
+                        <p:inputText id="local" value="#{clienteController.selected.local}" title="#{bundle.EditClienteTitle_local}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_oficina}" for="oficina" />
+                        <p:inputText id="oficina" value="#{clienteController.selected.oficina}" title="#{bundle.EditClienteTitle_oficina}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_avenida}" for="avenida" />
+                        <p:inputText id="avenida" value="#{clienteController.selected.avenida}" title="#{bundle.EditClienteTitle_avenida}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_calle}" for="calle" />
+                        <p:inputText id="calle" value="#{clienteController.selected.calle}" title="#{bundle.EditClienteTitle_calle}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_urbanizacion}" for="urbanizacion" />
+                        <p:inputText id="urbanizacion" value="#{clienteController.selected.urbanizacion}" title="#{bundle.EditClienteTitle_urbanizacion}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_codigopostal}" for="codigopostal" />
+                        <p:inputText id="codigopostal" value="#{clienteController.selected.codigopostal}" title="#{bundle.EditClienteTitle_codigopostal}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_puntoreferencia}" for="puntoreferencia" />
+                        <p:inputText id="puntoreferencia" value="#{clienteController.selected.puntoreferencia}" title="#{bundle.EditClienteTitle_puntoreferencia}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_sector}" for="sector" />
+                        <p:inputText id="sector" value="#{clienteController.selected.sector}" title="#{bundle.EditClienteTitle_sector}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_parroquia}" for="parroquia" />
+                        <p:inputText id="parroquia" value="#{clienteController.selected.parroquia}" title="#{bundle.EditClienteTitle_parroquia}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_municipio}" for="municipio" />
+                        <p:inputText id="municipio" value="#{clienteController.selected.municipio}" title="#{bundle.EditClienteTitle_municipio}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{clienteController.selected.estatus}" title="#{bundle.EditClienteTitle_estatus}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_estatus}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_estatuswitec}" for="estatuswitec" />
+                        <p:inputText id="estatuswitec" value="#{clienteController.selected.estatuswitec}" title="#{bundle.EditClienteTitle_estatuswitec}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_estadoactualizacion}" for="estadoactualizacion" />
+                        <p:inputText id="estadoactualizacion" value="#{clienteController.selected.estadoactualizacion}" title="#{bundle.EditClienteTitle_estadoactualizacion}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_estadoactualizacion}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_diadespacho}" for="diadespacho" />
+                        <p:inputText id="diadespacho" value="#{clienteController.selected.diadespacho}" title="#{bundle.EditClienteTitle_diadespacho}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_notas}" for="notas" />
+                        <p:inputText id="notas" value="#{clienteController.selected.notas}" title="#{bundle.EditClienteTitle_notas}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{clienteController.selected.password}" title="#{bundle.EditClienteTitle_password}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_password}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_nombrePrin}" for="nombrePrin" />
+                        <p:inputText id="nombrePrin" value="#{clienteController.selected.nombrePrin}" title="#{bundle.EditClienteTitle_nombrePrin}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_telefonoCelPrin}" for="telefonoCelPrin" />
+                        <p:inputText id="telefonoCelPrin" value="#{clienteController.selected.telefonoCelPrin}" title="#{bundle.EditClienteTitle_telefonoCelPrin}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_telefonoOficinaPrin}" for="telefonoOficinaPrin" />
+                        <p:inputText id="telefonoOficinaPrin" value="#{clienteController.selected.telefonoOficinaPrin}" title="#{bundle.EditClienteTitle_telefonoOficinaPrin}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_correoPrin}" for="correoPrin" />
+                        <p:inputText id="correoPrin" value="#{clienteController.selected.correoPrin}" title="#{bundle.EditClienteTitle_correoPrin}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_correoAlternoPrin}" for="correoAlternoPrin" />
+                        <p:inputText id="correoAlternoPrin" value="#{clienteController.selected.correoAlternoPrin}" title="#{bundle.EditClienteTitle_correoAlternoPrin}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_nombreSeg}" for="nombreSeg" />
+                        <p:inputText id="nombreSeg" value="#{clienteController.selected.nombreSeg}" title="#{bundle.EditClienteTitle_nombreSeg}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_telefonoCelSeg}" for="telefonoCelSeg" />
+                        <p:inputText id="telefonoCelSeg" value="#{clienteController.selected.telefonoCelSeg}" title="#{bundle.EditClienteTitle_telefonoCelSeg}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_telefonoOficinaSeg}" for="telefonoOficinaSeg" />
+                        <p:inputText id="telefonoOficinaSeg" value="#{clienteController.selected.telefonoOficinaSeg}" title="#{bundle.EditClienteTitle_telefonoOficinaSeg}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_correoSeg}" for="correoSeg" />
+                        <p:inputText id="correoSeg" value="#{clienteController.selected.correoSeg}" title="#{bundle.EditClienteTitle_correoSeg}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_correoAlternoSeg}" for="correoAlternoSeg" />
+                        <p:inputText id="correoAlternoSeg" value="#{clienteController.selected.correoAlternoSeg}" title="#{bundle.EditClienteTitle_correoAlternoSeg}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_regionMovistar}" for="regionMovistar" />
+                        <p:inputText id="regionMovistar" value="#{clienteController.selected.regionMovistar}" title="#{bundle.EditClienteTitle_regionMovistar}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_supervisorMovistar}" for="supervisorMovistar" />
+                        <p:inputText id="supervisorMovistar" value="#{clienteController.selected.supervisorMovistar}" title="#{bundle.EditClienteTitle_supervisorMovistar}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_gerenteComercial}" for="gerenteComercial" />
+                        <p:inputText id="gerenteComercial" value="#{clienteController.selected.gerenteComercial}" title="#{bundle.EditClienteTitle_gerenteComercial}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_direccionComercial}" for="direccionComercial" />
+                        <p:inputText id="direccionComercial" value="#{clienteController.selected.direccionComercial}" title="#{bundle.EditClienteTitle_direccionComercial}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_zonaComercial}" for="zonaComercial" />
+                        <p:inputText id="zonaComercial" value="#{clienteController.selected.zonaComercial}" title="#{bundle.EditClienteTitle_zonaComercial}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_nombreZona}" for="nombreZona" />
+                        <p:inputText id="nombreZona" value="#{clienteController.selected.nombreZona}" title="#{bundle.EditClienteTitle_nombreZona}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_idAnt}" for="idAnt" />
+                        <p:inputText id="idAnt" value="#{clienteController.selected.idAnt}" title="#{bundle.EditClienteTitle_idAnt}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_cantPedidos}" for="cantPedidos" />
+                        <p:inputText id="cantPedidos" value="#{clienteController.selected.cantPedidos}" title="#{bundle.EditClienteTitle_cantPedidos}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_latitud}" for="latitud" />
+                        <p:inputText id="latitud" value="#{clienteController.selected.latitud}" title="#{bundle.EditClienteTitle_latitud}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_longitud}" for="longitud" />
+                        <p:inputText id="longitud" value="#{clienteController.selected.longitud}" title="#{bundle.EditClienteTitle_longitud}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_estatusPoliticas}" for="estatusPoliticas" />
+                        <p:inputText id="estatusPoliticas" value="#{clienteController.selected.estatusPoliticas}" title="#{bundle.EditClienteTitle_estatusPoliticas}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_ciudadId}" for="ciudadId" />
+                        <p:selectOneMenu id="ciudadId" value="#{clienteController.selected.ciudadId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estadociudadController.itemsAvailableSelectOne}"
+                                           var="ciudadIdItem"
+                                           itemValue="#{ciudadIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_estadoId}" for="estadoId" />
+                        <p:selectOneMenu id="estadoId" value="#{clienteController.selected.estadoId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estadociudadController.itemsAvailableSelectOne}"
+                                           var="estadoIdItem"
+                                           itemValue="#{estadoIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_grupoId}" for="grupoId" />
+                        <p:selectOneMenu id="grupoId" value="#{clienteController.selected.grupoId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{grupoController.itemsAvailableSelectOne}"
+                                           var="grupoIdItem"
+                                           itemValue="#{grupoIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteController.update}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClienteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClienteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

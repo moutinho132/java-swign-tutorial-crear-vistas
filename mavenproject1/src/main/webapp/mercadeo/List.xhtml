@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMercadeoTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="MercadeoListForm">
+                <p:panel header="#{bundle.ListMercadeoTitle}">
+                    <p:dataTable id="datalist" value="#{mercadeoController.items}" var="item"
+                                 selectionMode="single" selection="#{mercadeoController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_cantidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_guiaDespacho}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.guiaDespacho}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_loteDespacho}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.loteDespacho}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_peso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.peso}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_piezas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.piezas}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_transportista}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.transportista}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_estatus}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estatus}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_fechaDespachado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDespachado}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_fechaRegistro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaRegistro}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_nombreEstatus}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreEstatus}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_notasEspeciales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.notasEspeciales}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_nroMercadeo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nroMercadeo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_seriales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.seriales}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_cedulaCliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedulaCliente}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_correoCliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correoCliente}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_nombrePrin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombrePrin}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_telefonoCliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefonoCliente}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_tipoPersona}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoPersona}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_idProducto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProducto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_idLote}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idLote}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMercadeoTitle_idCliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCliente}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{mercadeoController.prepareCreate}" update=":MercadeoCreateForm" oncomplete="PF('MercadeoCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MercadeoViewForm" oncomplete="PF('MercadeoViewDialog').show()" disabled="#{empty mercadeoController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MercadeoEditForm" oncomplete="PF('MercadeoEditDialog').show()" disabled="#{empty mercadeoController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{mercadeoController.destroy}" update=":growl,datalist" disabled="#{empty mercadeoController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PropuestaCreateDlg" widgetVar="PropuestaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePropuestaTitle}">
+            <h:form id="PropuestaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{propuestaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{propuestaController.selected.id}" title="#{bundle.CreatePropuestaTitle_id}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_nroPropuesta}" for="nroPropuesta" />
+                        <p:inputText id="nroPropuesta" value="#{propuestaController.selected.nroPropuesta}" title="#{bundle.CreatePropuestaTitle_nroPropuesta}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_nroPropuesta}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_precioUnitario}" for="precioUnitario" />
+                        <p:inputText id="precioUnitario" value="#{propuestaController.selected.precioUnitario}" title="#{bundle.CreatePropuestaTitle_precioUnitario}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_precioUnitario}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_fechaValido}" for="fechaValido" />
+                        <p:calendar id="fechaValido" pattern="MM/dd/yyyy HH:mm:ss" value="#{propuestaController.selected.fechaValido}" title="#{bundle.EditPropuestaTitle_fechaValido}" required="true" requiredMessage="#{bundle.EditPropuestaRequiredMessage_fechaValido}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_tipoDirigido}" for="tipoDirigido" />
+                        <p:inputText id="tipoDirigido" value="#{propuestaController.selected.tipoDirigido}" title="#{bundle.CreatePropuestaTitle_tipoDirigido}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_tipoDirigido}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_dirigido}" for="dirigido" />
+                        <p:inputText id="dirigido" value="#{propuestaController.selected.dirigido}" title="#{bundle.CreatePropuestaTitle_dirigido}" />
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_diaDespacho}" for="diaDespacho" />
+                        <p:inputText id="diaDespacho" value="#{propuestaController.selected.diaDespacho}" title="#{bundle.CreatePropuestaTitle_diaDespacho}" />
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_disponibilidad}" for="disponibilidad" />
+                        <p:inputText id="disponibilidad" value="#{propuestaController.selected.disponibilidad}" title="#{bundle.CreatePropuestaTitle_disponibilidad}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_disponibilidad}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_limiteCliente}" for="limiteCliente" />
+                        <p:inputText id="limiteCliente" value="#{propuestaController.selected.limiteCliente}" title="#{bundle.CreatePropuestaTitle_limiteCliente}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_limiteCliente}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{propuestaController.selected.estatus}" title="#{bundle.CreatePropuestaTitle_estatus}" required="true" requiredMessage="#{bundle.CreatePropuestaRequiredMessage_estatus}"/>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_cantidadMinimaCompra}" for="cantidadMinimaCompra" />
+                        <p:inputText id="cantidadMinimaCompra" value="#{propuestaController.selected.cantidadMinimaCompra}" title="#{bundle.CreatePropuestaTitle_cantidadMinimaCompra}" />
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_idAntiguo}" for="idAntiguo" />
+                        <p:inputText id="idAntiguo" value="#{propuestaController.selected.idAntiguo}" title="#{bundle.CreatePropuestaTitle_idAntiguo}" />
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{propuestaController.selected.descripcion}" title="#{bundle.CreatePropuestaTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_moneda}" for="moneda" />
+                        <p:inputText id="moneda" value="#{propuestaController.selected.moneda}" title="#{bundle.CreatePropuestaTitle_moneda}" />
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_estadoId}" for="estadoId" />
+                        <p:selectOneMenu id="estadoId" value="#{propuestaController.selected.estadoId}" >
+                            <f:selectItems value="#{estadociudadController.itemsAvailableSelectOne}"
+                                           var="estadoIdItem"
+                                           itemValue="#{estadoIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreatePropuestaLabel_idLote}" for="idLote" />
+                        <p:selectOneMenu id="idLote" value="#{propuestaController.selected.idLote}" >
+                            <f:selectItems value="#{loteController.itemsAvailableSelectOne}"
+                                           var="idLoteItem"
+                                           itemValue="#{idLoteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{propuestaController.create}" value="#{bundle.Save}" update="display,:PropuestaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PropuestaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PropuestaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

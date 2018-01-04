@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PoliticausoCreateDlg" widgetVar="PoliticausoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePoliticausoTitle}">
+            <h:form id="PoliticausoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{politicausoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePoliticausoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{politicausoController.selected.id}" title="#{bundle.CreatePoliticausoTitle_id}" required="true" requiredMessage="#{bundle.CreatePoliticausoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreatePoliticausoLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{politicausoController.selected.estatus}" title="#{bundle.CreatePoliticausoTitle_estatus}" />
+                        <p:outputLabel value="#{bundle.CreatePoliticausoLabel_fechaActualizacion}" for="fechaActualizacion" />
+                        <p:calendar id="fechaActualizacion" pattern="MM/dd/yyyy" value="#{politicausoController.selected.fechaActualizacion}" title="#{bundle.EditPoliticausoTitle_fechaActualizacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreatePoliticausoLabel_politica}" for="politica" />
+                        <p:inputTextarea rows="4" cols="30" id="politica" value="#{politicausoController.selected.politica}" title="#{bundle.CreatePoliticausoTitle_politica}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{politicausoController.create}" value="#{bundle.Save}" update="display,:PoliticausoListForm:datalist,:growl" oncomplete="handleSubmit(args,'PoliticausoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PoliticausoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

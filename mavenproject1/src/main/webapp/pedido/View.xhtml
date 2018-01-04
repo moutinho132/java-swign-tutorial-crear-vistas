@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PedidoViewDlg" widgetVar="PedidoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPedidoTitle}">
+            <h:form id="PedidoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pedidoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPedidoLabel_id}"/>
+                        <h:outputText value="#{pedidoController.selected.id}" title="#{bundle.ViewPedidoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_corPedido}"/>
+                        <h:outputText value="#{pedidoController.selected.corPedido}" title="#{bundle.ViewPedidoTitle_corPedido}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_nroPedido}"/>
+                        <h:outputText value="#{pedidoController.selected.nroPedido}" title="#{bundle.ViewPedidoTitle_nroPedido}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_cantidad}"/>
+                        <h:outputText value="#{pedidoController.selected.cantidad}" title="#{bundle.ViewPedidoTitle_cantidad}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_fechaDespacho}"/>
+                        <h:outputText value="#{pedidoController.selected.fechaDespacho}" title="#{bundle.ViewPedidoTitle_fechaDespacho}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_fechaPedido}"/>
+                        <h:outputText value="#{pedidoController.selected.fechaPedido}" title="#{bundle.ViewPedidoTitle_fechaPedido}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_notas}"/>
+                        <h:outputText value="#{pedidoController.selected.notas}" title="#{bundle.ViewPedidoTitle_notas}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_nroComprobante}"/>
+                        <h:outputText value="#{pedidoController.selected.nroComprobante}" title="#{bundle.ViewPedidoTitle_nroComprobante}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_comprobantePago}"/>
+                        <h:outputText value="#{pedidoController.selected.comprobantePago}" title="#{bundle.ViewPedidoTitle_comprobantePago}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_bancoOrigen}"/>
+                        <h:outputText value="#{pedidoController.selected.bancoOrigen}" title="#{bundle.ViewPedidoTitle_bancoOrigen}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_rifCiTitular}"/>
+                        <h:outputText value="#{pedidoController.selected.rifCiTitular}" title="#{bundle.ViewPedidoTitle_rifCiTitular}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_montoDeposito}"/>
+                        <h:outputText value="#{pedidoController.selected.montoDeposito}" title="#{bundle.ViewPedidoTitle_montoDeposito}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_retencion}"/>
+                        <h:outputText value="#{pedidoController.selected.retencion}" title="#{bundle.ViewPedidoTitle_retencion}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_notasAdmin}"/>
+                        <h:outputText value="#{pedidoController.selected.notasAdmin}" title="#{bundle.ViewPedidoTitle_notasAdmin}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_incidencia}"/>
+                        <h:outputText value="#{pedidoController.selected.incidencia}" title="#{bundle.ViewPedidoTitle_incidencia}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_nroFactura}"/>
+                        <h:outputText value="#{pedidoController.selected.nroFactura}" title="#{bundle.ViewPedidoTitle_nroFactura}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_seriales}"/>
+                        <h:outputText value="#{pedidoController.selected.seriales}" title="#{bundle.ViewPedidoTitle_seriales}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_guiaDespacho}"/>
+                        <h:outputText value="#{pedidoController.selected.guiaDespacho}" title="#{bundle.ViewPedidoTitle_guiaDespacho}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_transportista}"/>
+                        <h:outputText value="#{pedidoController.selected.transportista}" title="#{bundle.ViewPedidoTitle_transportista}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_piezas}"/>
+                        <h:outputText value="#{pedidoController.selected.piezas}" title="#{bundle.ViewPedidoTitle_piezas}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_peso}"/>
+                        <h:outputText value="#{pedidoController.selected.peso}" title="#{bundle.ViewPedidoTitle_peso}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_nroPropuesta}"/>
+                        <h:outputText value="#{pedidoController.selected.nroPropuesta}" title="#{bundle.ViewPedidoTitle_nroPropuesta}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_idAnt}"/>
+                        <h:outputText value="#{pedidoController.selected.idAnt}" title="#{bundle.ViewPedidoTitle_idAnt}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_recibido}"/>
+                        <h:outputText value="#{pedidoController.selected.recibido}" title="#{bundle.ViewPedidoTitle_recibido}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_fechaDespachado}"/>
+                        <h:outputText value="#{pedidoController.selected.fechaDespachado}" title="#{bundle.ViewPedidoTitle_fechaDespachado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_fechaEntregado}"/>
+                        <h:outputText value="#{pedidoController.selected.fechaEntregado}" title="#{bundle.ViewPedidoTitle_fechaEntregado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_fechaConfirmado}"/>
+                        <h:outputText value="#{pedidoController.selected.fechaConfirmado}" title="#{bundle.ViewPedidoTitle_fechaConfirmado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_loteDespacho}"/>
+                        <h:outputText value="#{pedidoController.selected.loteDespacho}" title="#{bundle.ViewPedidoTitle_loteDespacho}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_ivaPorc}"/>
+                        <h:outputText value="#{pedidoController.selected.ivaPorc}" title="#{bundle.ViewPedidoTitle_ivaPorc}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_fechaFactura}"/>
+                        <h:outputText value="#{pedidoController.selected.fechaFactura}" title="#{bundle.ViewPedidoTitle_fechaFactura}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_idCliente}"/>
+                        <h:outputText value="#{pedidoController.selected.idCliente}" title="#{bundle.ViewPedidoTitle_idCliente}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_estatus}"/>
+                        <h:outputText value="#{pedidoController.selected.estatus}" title="#{bundle.ViewPedidoTitle_estatus}"/>
+                        <h:outputText value="#{bundle.ViewPedidoLabel_idPropuesta}"/>
+                        <h:outputText value="#{pedidoController.selected.idPropuesta}" title="#{bundle.ViewPedidoTitle_idPropuesta}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PedidoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <Resource id="entites" type="javax.sql.DataSource">#Tue Jan 02 09:12:34 GMT-04:00 2018
+jdbcDriver=com.mysql.jdbc.Driver
+password=
+userName=mysql
+jdbcUrl=jdbc\:mysql\://192.168.1.12\:3306/terminalesbd?zeroDateTimeBehavior\=convertToNull
+</Resource>
+</resources>

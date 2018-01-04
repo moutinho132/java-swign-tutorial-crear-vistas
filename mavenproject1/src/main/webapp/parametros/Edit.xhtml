@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ParametrosEditDlg" widgetVar="ParametrosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditParametrosTitle}">
+            <h:form id="ParametrosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{parametrosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditParametrosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{parametrosController.selected.id}" title="#{bundle.EditParametrosTitle_id}" required="true" requiredMessage="#{bundle.EditParametrosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditParametrosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{parametrosController.selected.nombre}" title="#{bundle.EditParametrosTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.EditParametrosLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{parametrosController.selected.valor}" title="#{bundle.EditParametrosTitle_valor}" />
+                        <p:outputLabel value="#{bundle.EditParametrosLabel_valorDefecto}" for="valorDefecto" />
+                        <p:inputText id="valorDefecto" value="#{parametrosController.selected.valorDefecto}" title="#{bundle.EditParametrosTitle_valorDefecto}" />
+                        <p:outputLabel value="#{bundle.EditParametrosLabel_nombreValor}" for="nombreValor" />
+                        <p:inputText id="nombreValor" value="#{parametrosController.selected.nombreValor}" title="#{bundle.EditParametrosTitle_nombreValor}" />
+                        <p:outputLabel value="#{bundle.EditParametrosLabel_valorDescuento}" for="valorDescuento" />
+                        <p:inputText id="valorDescuento" value="#{parametrosController.selected.valorDescuento}" title="#{bundle.EditParametrosTitle_valorDescuento}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{parametrosController.update}" value="#{bundle.Save}" update="display,:ParametrosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ParametrosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ParametrosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

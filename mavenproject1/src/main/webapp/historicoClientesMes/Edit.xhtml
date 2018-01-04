@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HistoricoClientesMesEditDlg" widgetVar="HistoricoClientesMesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditHistoricoClientesMesTitle}">
+            <h:form id="HistoricoClientesMesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{historicoClientesMesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditHistoricoClientesMesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{historicoClientesMesController.selected.id}" title="#{bundle.EditHistoricoClientesMesTitle_id}" required="true" requiredMessage="#{bundle.EditHistoricoClientesMesRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditHistoricoClientesMesLabel_mes}" for="mes" />
+                        <p:inputText id="mes" value="#{historicoClientesMesController.selected.mes}" title="#{bundle.EditHistoricoClientesMesTitle_mes}" required="true" requiredMessage="#{bundle.EditHistoricoClientesMesRequiredMessage_mes}"/>
+                        <p:outputLabel value="#{bundle.EditHistoricoClientesMesLabel_anio}" for="anio" />
+                        <p:inputText id="anio" value="#{historicoClientesMesController.selected.anio}" title="#{bundle.EditHistoricoClientesMesTitle_anio}" required="true" requiredMessage="#{bundle.EditHistoricoClientesMesRequiredMessage_anio}"/>
+                        <p:outputLabel value="#{bundle.EditHistoricoClientesMesLabel_totalClientes}" for="totalClientes" />
+                        <p:inputText id="totalClientes" value="#{historicoClientesMesController.selected.totalClientes}" title="#{bundle.EditHistoricoClientesMesTitle_totalClientes}" required="true" requiredMessage="#{bundle.EditHistoricoClientesMesRequiredMessage_totalClientes}"/>
+                        <p:outputLabel value="#{bundle.EditHistoricoClientesMesLabel_grupoId}" for="grupoId" />
+                        <p:selectOneMenu id="grupoId" value="#{historicoClientesMesController.selected.grupoId}" required="true" requiredMessage="#{bundle.EditHistoricoClientesMesRequiredMessage_grupoId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{grupoController.itemsAvailableSelectOne}"
+                                           var="grupoIdItem"
+                                           itemValue="#{grupoIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{historicoClientesMesController.update}" value="#{bundle.Save}" update="display,:HistoricoClientesMesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'HistoricoClientesMesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HistoricoClientesMesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

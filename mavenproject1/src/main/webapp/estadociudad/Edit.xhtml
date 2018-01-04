@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstadociudadEditDlg" widgetVar="EstadociudadEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEstadociudadTitle}">
+            <h:form id="EstadociudadEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estadociudadController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEstadociudadLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{estadociudadController.selected.id}" title="#{bundle.EditEstadociudadTitle_id}" required="true" requiredMessage="#{bundle.EditEstadociudadRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditEstadociudadLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{estadociudadController.selected.nombre}" title="#{bundle.EditEstadociudadTitle_nombre}" required="true" requiredMessage="#{bundle.EditEstadociudadRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditEstadociudadLabel_latitud}" for="latitud" />
+                        <p:inputText id="latitud" value="#{estadociudadController.selected.latitud}" title="#{bundle.EditEstadociudadTitle_latitud}" />
+                        <p:outputLabel value="#{bundle.EditEstadociudadLabel_longitud}" for="longitud" />
+                        <p:inputText id="longitud" value="#{estadociudadController.selected.longitud}" title="#{bundle.EditEstadociudadTitle_longitud}" />
+                        <p:outputLabel value="#{bundle.EditEstadociudadLabel_padreId}" for="padreId" />
+                        <p:selectOneMenu id="padreId" value="#{estadociudadController.selected.padreId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estadociudadController.itemsAvailableSelectOne}"
+                                           var="padreIdItem"
+                                           itemValue="#{padreIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estadociudadController.update}" value="#{bundle.Save}" update="display,:EstadociudadListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EstadociudadEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstadociudadEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

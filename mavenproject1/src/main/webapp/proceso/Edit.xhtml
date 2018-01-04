@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProcesoEditDlg" widgetVar="ProcesoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProcesoTitle}">
+            <h:form id="ProcesoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{procesoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProcesoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{procesoController.selected.id}" title="#{bundle.EditProcesoTitle_id}" required="true" requiredMessage="#{bundle.EditProcesoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditProcesoLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{procesoController.selected.descripcion}" title="#{bundle.EditProcesoTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditProcesoLabel_tipoProceso}" for="tipoProceso" />
+                        <p:inputText id="tipoProceso" value="#{procesoController.selected.tipoProceso}" title="#{bundle.EditProcesoTitle_tipoProceso}" required="true" requiredMessage="#{bundle.EditProcesoRequiredMessage_tipoProceso}"/>
+                        <p:outputLabel value="#{bundle.EditProcesoLabel_totalProcesar}" for="totalProcesar" />
+                        <p:inputText id="totalProcesar" value="#{procesoController.selected.totalProcesar}" title="#{bundle.EditProcesoTitle_totalProcesar}" />
+                        <p:outputLabel value="#{bundle.EditProcesoLabel_totalCompletado}" for="totalCompletado" />
+                        <p:inputText id="totalCompletado" value="#{procesoController.selected.totalCompletado}" title="#{bundle.EditProcesoTitle_totalCompletado}" />
+                        <p:outputLabel value="#{bundle.EditProcesoLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{procesoController.selected.estatus}" title="#{bundle.EditProcesoTitle_estatus}" required="true" requiredMessage="#{bundle.EditProcesoRequiredMessage_estatus}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{procesoController.update}" value="#{bundle.Save}" update="display,:ProcesoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProcesoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProcesoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

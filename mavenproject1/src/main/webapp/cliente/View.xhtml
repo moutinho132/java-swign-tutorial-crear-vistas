@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteViewDlg" widgetVar="ClienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClienteTitle}">
+            <h:form id="ClienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClienteLabel_razonsocial}"/>
+                        <h:outputText value="#{clienteController.selected.razonsocial}" title="#{bundle.ViewClienteTitle_razonsocial}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_rif}"/>
+                        <h:outputText value="#{clienteController.selected.rif}" title="#{bundle.ViewClienteTitle_rif}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_codigodeudor}"/>
+                        <h:outputText value="#{clienteController.selected.codigodeudor}" title="#{bundle.ViewClienteTitle_codigodeudor}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_codigocomercial}"/>
+                        <h:outputText value="#{clienteController.selected.codigocomercial}" title="#{bundle.ViewClienteTitle_codigocomercial}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_id}"/>
+                        <h:outputText value="#{clienteController.selected.id}" title="#{bundle.ViewClienteTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_centrocomercial}"/>
+                        <h:outputText value="#{clienteController.selected.centrocomercial}" title="#{bundle.ViewClienteTitle_centrocomercial}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_edificio}"/>
+                        <h:outputText value="#{clienteController.selected.edificio}" title="#{bundle.ViewClienteTitle_edificio}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_piso}"/>
+                        <h:outputText value="#{clienteController.selected.piso}" title="#{bundle.ViewClienteTitle_piso}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_local}"/>
+                        <h:outputText value="#{clienteController.selected.local}" title="#{bundle.ViewClienteTitle_local}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_oficina}"/>
+                        <h:outputText value="#{clienteController.selected.oficina}" title="#{bundle.ViewClienteTitle_oficina}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_avenida}"/>
+                        <h:outputText value="#{clienteController.selected.avenida}" title="#{bundle.ViewClienteTitle_avenida}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_calle}"/>
+                        <h:outputText value="#{clienteController.selected.calle}" title="#{bundle.ViewClienteTitle_calle}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_urbanizacion}"/>
+                        <h:outputText value="#{clienteController.selected.urbanizacion}" title="#{bundle.ViewClienteTitle_urbanizacion}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_codigopostal}"/>
+                        <h:outputText value="#{clienteController.selected.codigopostal}" title="#{bundle.ViewClienteTitle_codigopostal}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_puntoreferencia}"/>
+                        <h:outputText value="#{clienteController.selected.puntoreferencia}" title="#{bundle.ViewClienteTitle_puntoreferencia}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_sector}"/>
+                        <h:outputText value="#{clienteController.selected.sector}" title="#{bundle.ViewClienteTitle_sector}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_parroquia}"/>
+                        <h:outputText value="#{clienteController.selected.parroquia}" title="#{bundle.ViewClienteTitle_parroquia}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_municipio}"/>
+                        <h:outputText value="#{clienteController.selected.municipio}" title="#{bundle.ViewClienteTitle_municipio}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_estatus}"/>
+                        <h:outputText value="#{clienteController.selected.estatus}" title="#{bundle.ViewClienteTitle_estatus}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_estatuswitec}"/>
+                        <h:outputText value="#{clienteController.selected.estatuswitec}" title="#{bundle.ViewClienteTitle_estatuswitec}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_estadoactualizacion}"/>
+                        <h:outputText value="#{clienteController.selected.estadoactualizacion}" title="#{bundle.ViewClienteTitle_estadoactualizacion}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_diadespacho}"/>
+                        <h:outputText value="#{clienteController.selected.diadespacho}" title="#{bundle.ViewClienteTitle_diadespacho}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_notas}"/>
+                        <h:outputText value="#{clienteController.selected.notas}" title="#{bundle.ViewClienteTitle_notas}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_password}"/>
+                        <h:outputText value="#{clienteController.selected.password}" title="#{bundle.ViewClienteTitle_password}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_nombrePrin}"/>
+                        <h:outputText value="#{clienteController.selected.nombrePrin}" title="#{bundle.ViewClienteTitle_nombrePrin}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_telefonoCelPrin}"/>
+                        <h:outputText value="#{clienteController.selected.telefonoCelPrin}" title="#{bundle.ViewClienteTitle_telefonoCelPrin}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_telefonoOficinaPrin}"/>
+                        <h:outputText value="#{clienteController.selected.telefonoOficinaPrin}" title="#{bundle.ViewClienteTitle_telefonoOficinaPrin}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_correoPrin}"/>
+                        <h:outputText value="#{clienteController.selected.correoPrin}" title="#{bundle.ViewClienteTitle_correoPrin}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_correoAlternoPrin}"/>
+                        <h:outputText value="#{clienteController.selected.correoAlternoPrin}" title="#{bundle.ViewClienteTitle_correoAlternoPrin}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_nombreSeg}"/>
+                        <h:outputText value="#{clienteController.selected.nombreSeg}" title="#{bundle.ViewClienteTitle_nombreSeg}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_telefonoCelSeg}"/>
+                        <h:outputText value="#{clienteController.selected.telefonoCelSeg}" title="#{bundle.ViewClienteTitle_telefonoCelSeg}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_telefonoOficinaSeg}"/>
+                        <h:outputText value="#{clienteController.selected.telefonoOficinaSeg}" title="#{bundle.ViewClienteTitle_telefonoOficinaSeg}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_correoSeg}"/>
+                        <h:outputText value="#{clienteController.selected.correoSeg}" title="#{bundle.ViewClienteTitle_correoSeg}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_correoAlternoSeg}"/>
+                        <h:outputText value="#{clienteController.selected.correoAlternoSeg}" title="#{bundle.ViewClienteTitle_correoAlternoSeg}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_regionMovistar}"/>
+                        <h:outputText value="#{clienteController.selected.regionMovistar}" title="#{bundle.ViewClienteTitle_regionMovistar}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_supervisorMovistar}"/>
+                        <h:outputText value="#{clienteController.selected.supervisorMovistar}" title="#{bundle.ViewClienteTitle_supervisorMovistar}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_gerenteComercial}"/>
+                        <h:outputText value="#{clienteController.selected.gerenteComercial}" title="#{bundle.ViewClienteTitle_gerenteComercial}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_direccionComercial}"/>
+                        <h:outputText value="#{clienteController.selected.direccionComercial}" title="#{bundle.ViewClienteTitle_direccionComercial}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_zonaComercial}"/>
+                        <h:outputText value="#{clienteController.selected.zonaComercial}" title="#{bundle.ViewClienteTitle_zonaComercial}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_nombreZona}"/>
+                        <h:outputText value="#{clienteController.selected.nombreZona}" title="#{bundle.ViewClienteTitle_nombreZona}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_idAnt}"/>
+                        <h:outputText value="#{clienteController.selected.idAnt}" title="#{bundle.ViewClienteTitle_idAnt}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cantPedidos}"/>
+                        <h:outputText value="#{clienteController.selected.cantPedidos}" title="#{bundle.ViewClienteTitle_cantPedidos}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_latitud}"/>
+                        <h:outputText value="#{clienteController.selected.latitud}" title="#{bundle.ViewClienteTitle_latitud}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_longitud}"/>
+                        <h:outputText value="#{clienteController.selected.longitud}" title="#{bundle.ViewClienteTitle_longitud}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_estatusPoliticas}"/>
+                        <h:outputText value="#{clienteController.selected.estatusPoliticas}" title="#{bundle.ViewClienteTitle_estatusPoliticas}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_ciudadId}"/>
+                        <h:outputText value="#{clienteController.selected.ciudadId}" title="#{bundle.ViewClienteTitle_ciudadId}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_estadoId}"/>
+                        <h:outputText value="#{clienteController.selected.estadoId}" title="#{bundle.ViewClienteTitle_estadoId}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_grupoId}"/>
+                        <h:outputText value="#{clienteController.selected.grupoId}" title="#{bundle.ViewClienteTitle_grupoId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

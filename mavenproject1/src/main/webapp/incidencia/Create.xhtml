@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncidenciaCreateDlg" widgetVar="IncidenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateIncidenciaTitle}">
+            <h:form id="IncidenciaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incidenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{incidenciaController.selected.id}" title="#{bundle.CreateIncidenciaTitle_id}" required="true" requiredMessage="#{bundle.CreateIncidenciaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_especifiqueIncidente}" for="especifiqueIncidente" />
+                        <p:inputText id="especifiqueIncidente" value="#{incidenciaController.selected.especifiqueIncidente}" title="#{bundle.CreateIncidenciaTitle_especifiqueIncidente}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{incidenciaController.selected.estatus}" title="#{bundle.CreateIncidenciaTitle_estatus}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_fechaDespachado}" for="fechaDespachado" />
+                        <p:calendar id="fechaDespachado" pattern="MM/dd/yyyy" value="#{incidenciaController.selected.fechaDespachado}" title="#{bundle.EditIncidenciaTitle_fechaDespachado}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_fechaEntregado}" for="fechaEntregado" />
+                        <p:calendar id="fechaEntregado" pattern="MM/dd/yyyy" value="#{incidenciaController.selected.fechaEntregado}" title="#{bundle.EditIncidenciaTitle_fechaEntregado}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_fechaIncidencia}" for="fechaIncidencia" />
+                        <p:calendar id="fechaIncidencia" pattern="MM/dd/yyyy" value="#{incidenciaController.selected.fechaIncidencia}" title="#{bundle.EditIncidenciaTitle_fechaIncidencia}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_guiaDespacho}" for="guiaDespacho" />
+                        <p:inputText id="guiaDespacho" value="#{incidenciaController.selected.guiaDespacho}" title="#{bundle.CreateIncidenciaTitle_guiaDespacho}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_loteDespacho}" for="loteDespacho" />
+                        <p:inputText id="loteDespacho" value="#{incidenciaController.selected.loteDespacho}" title="#{bundle.CreateIncidenciaTitle_loteDespacho}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_nroIncidente}" for="nroIncidente" />
+                        <p:inputText id="nroIncidente" value="#{incidenciaController.selected.nroIncidente}" title="#{bundle.CreateIncidenciaTitle_nroIncidente}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_observaciones}" for="observaciones" />
+                        <p:inputText id="observaciones" value="#{incidenciaController.selected.observaciones}" title="#{bundle.CreateIncidenciaTitle_observaciones}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_peso}" for="peso" />
+                        <p:inputText id="peso" value="#{incidenciaController.selected.peso}" title="#{bundle.CreateIncidenciaTitle_peso}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_piezas}" for="piezas" />
+                        <p:inputText id="piezas" value="#{incidenciaController.selected.piezas}" title="#{bundle.CreateIncidenciaTitle_piezas}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_tipoIncidencia}" for="tipoIncidencia" />
+                        <p:inputText id="tipoIncidencia" value="#{incidenciaController.selected.tipoIncidencia}" title="#{bundle.CreateIncidenciaTitle_tipoIncidencia}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_transportista}" for="transportista" />
+                        <p:inputText id="transportista" value="#{incidenciaController.selected.transportista}" title="#{bundle.CreateIncidenciaTitle_transportista}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_fechaCierre}" for="fechaCierre" />
+                        <p:calendar id="fechaCierre" pattern="MM/dd/yyyy" value="#{incidenciaController.selected.fechaCierre}" title="#{bundle.EditIncidenciaTitle_fechaCierre}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_notasCliente}" for="notasCliente" />
+                        <p:inputText id="notasCliente" value="#{incidenciaController.selected.notasCliente}" title="#{bundle.CreateIncidenciaTitle_notasCliente}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_notasWitec}" for="notasWitec" />
+                        <p:inputText id="notasWitec" value="#{incidenciaController.selected.notasWitec}" title="#{bundle.CreateIncidenciaTitle_notasWitec}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_guiaDespachoNew}" for="guiaDespachoNew" />
+                        <p:inputText id="guiaDespachoNew" value="#{incidenciaController.selected.guiaDespachoNew}" title="#{bundle.CreateIncidenciaTitle_guiaDespachoNew}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_loteDespachoNew}" for="loteDespachoNew" />
+                        <p:inputText id="loteDespachoNew" value="#{incidenciaController.selected.loteDespachoNew}" title="#{bundle.CreateIncidenciaTitle_loteDespachoNew}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_nombreEstatus}" for="nombreEstatus" />
+                        <p:inputText id="nombreEstatus" value="#{incidenciaController.selected.nombreEstatus}" title="#{bundle.CreateIncidenciaTitle_nombreEstatus}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_notificacionAdmin}" for="notificacionAdmin" />
+                        <p:inputText id="notificacionAdmin" value="#{incidenciaController.selected.notificacionAdmin}" title="#{bundle.CreateIncidenciaTitle_notificacionAdmin}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_notificacionCliente}" for="notificacionCliente" />
+                        <p:inputText id="notificacionCliente" value="#{incidenciaController.selected.notificacionCliente}" title="#{bundle.CreateIncidenciaTitle_notificacionCliente}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_pesoNew}" for="pesoNew" />
+                        <p:inputText id="pesoNew" value="#{incidenciaController.selected.pesoNew}" title="#{bundle.CreateIncidenciaTitle_pesoNew}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_piezasNew}" for="piezasNew" />
+                        <p:inputText id="piezasNew" value="#{incidenciaController.selected.piezasNew}" title="#{bundle.CreateIncidenciaTitle_piezasNew}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_recibido}" for="recibido" />
+                        <p:inputText id="recibido" value="#{incidenciaController.selected.recibido}" title="#{bundle.CreateIncidenciaTitle_recibido}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_serialNuevo}" for="serialNuevo" />
+                        <p:inputText id="serialNuevo" value="#{incidenciaController.selected.serialNuevo}" title="#{bundle.CreateIncidenciaTitle_serialNuevo}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_serialReportado}" for="serialReportado" />
+                        <p:inputText id="serialReportado" value="#{incidenciaController.selected.serialReportado}" title="#{bundle.CreateIncidenciaTitle_serialReportado}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_transportistaNew}" for="transportistaNew" />
+                        <p:inputText id="transportistaNew" value="#{incidenciaController.selected.transportistaNew}" title="#{bundle.CreateIncidenciaTitle_transportistaNew}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_diasResolucion}" for="diasResolucion" />
+                        <p:inputText id="diasResolucion" value="#{incidenciaController.selected.diasResolucion}" title="#{bundle.CreateIncidenciaTitle_diasResolucion}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_loteIdNuevo}" for="loteIdNuevo" />
+                        <p:selectOneMenu id="loteIdNuevo" value="#{incidenciaController.selected.loteIdNuevo}" >
+                            <f:selectItems value="#{loteController.itemsAvailableSelectOne}"
+                                           var="loteIdNuevoItem"
+                                           itemValue="#{loteIdNuevoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_idLote}" for="idLote" />
+                        <p:selectOneMenu id="idLote" value="#{incidenciaController.selected.idLote}" >
+                            <f:selectItems value="#{loteController.itemsAvailableSelectOne}"
+                                           var="idLoteItem"
+                                           itemValue="#{idLoteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_idPedido}" for="idPedido" />
+                        <p:selectOneMenu id="idPedido" value="#{incidenciaController.selected.idPedido}" >
+                            <f:selectItems value="#{pedidoController.itemsAvailableSelectOne}"
+                                           var="idPedidoItem"
+                                           itemValue="#{idPedidoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncidenciaLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{incidenciaController.selected.idCliente}" >
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{incidenciaController.create}" value="#{bundle.Save}" update="display,:IncidenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncidenciaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IncidenciaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

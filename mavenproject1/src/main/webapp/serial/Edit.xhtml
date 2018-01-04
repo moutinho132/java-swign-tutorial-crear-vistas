@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SerialEditDlg" widgetVar="SerialEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSerialTitle}">
+            <h:form id="SerialEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serialController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSerialLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{serialController.selected.id}" title="#{bundle.EditSerialTitle_id}" required="true" requiredMessage="#{bundle.EditSerialRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditSerialLabel_estatus}" for="estatus" />
+                        <p:inputText id="estatus" value="#{serialController.selected.estatus}" title="#{bundle.EditSerialTitle_estatus}" required="true" requiredMessage="#{bundle.EditSerialRequiredMessage_estatus}"/>
+                        <p:outputLabel value="#{bundle.EditSerialLabel_serial}" for="serial" />
+                        <p:inputText id="serial" value="#{serialController.selected.serial}" title="#{bundle.EditSerialTitle_serial}" />
+                        <p:outputLabel value="#{bundle.EditSerialLabel_ubicacion}" for="ubicacion" />
+                        <p:inputText id="ubicacion" value="#{serialController.selected.ubicacion}" title="#{bundle.EditSerialTitle_ubicacion}" />
+                        <p:outputLabel value="#{bundle.EditSerialLabel_idLote}" for="idLote" />
+                        <p:selectOneMenu id="idLote" value="#{serialController.selected.idLote}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{loteController.itemsAvailableSelectOne}"
+                                           var="idLoteItem"
+                                           itemValue="#{idLoteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSerialLabel_idPedido}" for="idPedido" />
+                        <p:selectOneMenu id="idPedido" value="#{serialController.selected.idPedido}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pedidoController.itemsAvailableSelectOne}"
+                                           var="idPedidoItem"
+                                           itemValue="#{idPedidoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{serialController.update}" value="#{bundle.Save}" update="display,:SerialListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SerialEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SerialEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

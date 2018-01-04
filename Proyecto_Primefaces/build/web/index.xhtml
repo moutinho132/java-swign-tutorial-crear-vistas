@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Mi proyecto</title>
+    </h:head>
+    <h:body>
+        <p:panel>
+            <p:growl id="messages"/>
+ 
+            <p:menubar>
+                <p:submenu label="Modulo Usuario" icon="ui-icon-document">
+                    <p:submenu label="Nuevo Usuario" icon="ui-icon-contact">
+                        <p:menuitem value="Administrar" url="#" />
+                        <p:menuitem value="Otro" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="Abrir" url="#" />
+                    <p:separator />
+                    <p:menuitem value="Salir" url="#" />
+                </p:submenu>
+
+                <p:submenu label="Edit" icon="ui-icon-pencil">
+                    <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                    <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+                </p:submenu>
+
+                <p:submenu label="Help" icon="ui-icon-help">
+                    <p:menuitem value="Contents" url="#" />
+                    <p:submenu label="Search" icon="ui-icon-search">
+                        
+                        <p:submenu label="Text">
+                            <p:menuitem value="Workspace" url="#" />
+                        </p:submenu>
+                        <p:menuitem value="File" url="#" />
+                    </p:submenu>
+                </p:submenu>
+
+                
+
+               
+            </p:menubar>
+        </p:panel>
+        <p:panel style="border: beige"  menuTitle="Idenfiticate">
+      
+            <p:tabView scrollable="true">
+                <p:tab title="Tab 1">Quien Somos</p:tab>
+                <p:tab title="Tab 2">Contactanos</p:tab>
+                <p:tab title="Tab 3">Ubicanos</p:tab>
+
+
+            </p:tabView>
+            <center>
+                
+                    <p:panelGrid id="panelForm" columns="2"  >
+                        <h:form id="form_login">
+                        <h:outputLabel value="Ingrese el Usuario" />
+                        <h:inputText id="usuario" value="#{usuario.nombreUsuario}">
+
+                        </h:inputText>
+                        <h:outputLabel value="Clave" />
+                        <p:password id="clave" value="#{usuario.clave}"></p:password>
+                        <br></br><br></br>
+                        <center>
+                            <p:commandButton id="salir" value="salir" action="#{usuario.logout}"/> 
+                            <p:commandButton id="ingresar" value="Ingresar" actionListener="#{usuario.ValidarUsuario()}" />
+                        </center>
+                        </h:form>
+                    </p:panelGrid>
+                
+                    <p:lightBox width="85%" height="85%" iframe="true" widgetVar="selectIframe" >  
+                        <h:outputLink value="bienvenido.xhtml" >  
+                                <h:outputText value="#{msg['action.bienvenido']}"/>  
+                        </h:outputLink>
+                    </p:lightBox>
+            </center>
+        </p:panel>
+        <p:panel footer="footer">
+      
+    
+        </p:panel>
+      
+        <!--<h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />-->
+    </h:body>
+</html>
+

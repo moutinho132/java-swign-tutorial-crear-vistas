@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RoboEditDlg" widgetVar="RoboEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRoboTitle}">
+            <h:form id="RoboEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{roboController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRoboLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{roboController.selected.id}" title="#{bundle.EditRoboTitle_id}" required="true" requiredMessage="#{bundle.EditRoboRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditRoboLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{roboController.selected.descripcion}" title="#{bundle.EditRoboTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditRoboLabel_fechaRegistro}" for="fechaRegistro" />
+                        <p:calendar id="fechaRegistro" pattern="MM/dd/yyyy HH:mm:ss" value="#{roboController.selected.fechaRegistro}" title="#{bundle.EditRoboTitle_fechaRegistro}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditRoboLabel_fechaRobo}" for="fechaRobo" />
+                        <p:calendar id="fechaRobo" pattern="MM/dd/yyyy HH:mm:ss" value="#{roboController.selected.fechaRobo}" title="#{bundle.EditRoboTitle_fechaRobo}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditRoboLabel_modelo}" for="modelo" />
+                        <p:inputText id="modelo" value="#{roboController.selected.modelo}" title="#{bundle.EditRoboTitle_modelo}" />
+                        <p:outputLabel value="#{bundle.EditRoboLabel_nombreUbicacionRobo}" for="nombreUbicacionRobo" />
+                        <p:inputText id="nombreUbicacionRobo" value="#{roboController.selected.nombreUbicacionRobo}" title="#{bundle.EditRoboTitle_nombreUbicacionRobo}" />
+                        <p:outputLabel value="#{bundle.EditRoboLabel_nroRobo}" for="nroRobo" />
+                        <p:inputText id="nroRobo" value="#{roboController.selected.nroRobo}" title="#{bundle.EditRoboTitle_nroRobo}" />
+                        <p:outputLabel value="#{bundle.EditRoboLabel_ubicacionRobo}" for="ubicacionRobo" />
+                        <p:inputText id="ubicacionRobo" value="#{roboController.selected.ubicacionRobo}" title="#{bundle.EditRoboTitle_ubicacionRobo}" />
+                        <p:outputLabel value="#{bundle.EditRoboLabel_idLote}" for="idLote" />
+                        <p:selectOneMenu id="idLote" value="#{roboController.selected.idLote}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{loteController.itemsAvailableSelectOne}"
+                                           var="idLoteItem"
+                                           itemValue="#{idLoteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditRoboLabel_idSerial}" for="idSerial" />
+                        <p:selectOneMenu id="idSerial" value="#{roboController.selected.idSerial}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{serialController.itemsAvailableSelectOne}"
+                                           var="idSerialItem"
+                                           itemValue="#{idSerialItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{roboController.update}" value="#{bundle.Save}" update="display,:RoboListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RoboEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RoboEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

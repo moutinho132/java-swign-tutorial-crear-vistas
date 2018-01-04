@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ParametrosCreateDlg" widgetVar="ParametrosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateParametrosTitle}">
+            <h:form id="ParametrosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{parametrosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateParametrosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{parametrosController.selected.id}" title="#{bundle.CreateParametrosTitle_id}" required="true" requiredMessage="#{bundle.CreateParametrosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateParametrosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{parametrosController.selected.nombre}" title="#{bundle.CreateParametrosTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateParametrosLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{parametrosController.selected.valor}" title="#{bundle.CreateParametrosTitle_valor}" />
+                        <p:outputLabel value="#{bundle.CreateParametrosLabel_valorDefecto}" for="valorDefecto" />
+                        <p:inputText id="valorDefecto" value="#{parametrosController.selected.valorDefecto}" title="#{bundle.CreateParametrosTitle_valorDefecto}" />
+                        <p:outputLabel value="#{bundle.CreateParametrosLabel_nombreValor}" for="nombreValor" />
+                        <p:inputText id="nombreValor" value="#{parametrosController.selected.nombreValor}" title="#{bundle.CreateParametrosTitle_nombreValor}" />
+                        <p:outputLabel value="#{bundle.CreateParametrosLabel_valorDescuento}" for="valorDescuento" />
+                        <p:inputText id="valorDescuento" value="#{parametrosController.selected.valorDescuento}" title="#{bundle.CreateParametrosTitle_valorDescuento}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{parametrosController.create}" value="#{bundle.Save}" update="display,:ParametrosListForm:datalist,:growl" oncomplete="handleSubmit(args,'ParametrosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ParametrosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
